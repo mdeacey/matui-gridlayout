@@ -1,0 +1,45 @@
+
+.header-inputbox input {
+  margin-top:1px !important;
+  height: 20px;
+  width: 180px !important;
+}
+.header-inputbox hr {
+  bottom: 22px !important;
+  border-color:#0094A7!important;
+  width: 180px !important;
+}
+.header-inputbox div {
+  bottom: 24px !important;
+  width: 180px !important;
+}
+.header-inputbox label {
+  margin-top: -12px !important;
+  width: 180px !important;
+}
+
+.top-appbar {
+  margin-top: -18px;
+}
+
+.header-inputbox {
+  width: 180px !important;
+}
+
+.home-page {
+  float: left;
+}
+
+.side-nav>div{
+  margin-top: 70px;
+}
+
+.header-left-area h3 {
+  margin: 10px 0 0 20px;
+}
+.header-left-area {
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 150px;
+  display: -webkit-box;
+}
