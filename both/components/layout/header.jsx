@@ -1,93 +1,44 @@
 injectTapEventPlugin();
 
-let {
+var {
   FormsyText
 } = FMUI;
 var {
   AppBar,
   RaisedButton,
   FloatingActionButton,
-  LeftNav, MenuItem
+  LeftNav,
+  MenuItem,
+  AppCanvas
 } = MUI;
 var {
   ThemeManager,
   LightRawTheme
-} = MUI.Styles;
+} = Styles;
 
 
 Header = React.createClass({
   childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
-
-  getChildContext(){
-    return {
-      muiTheme: Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme)
-    }
-  },
-
-  getInitialState: function () {
-    return {
-      canSumbit: false
-    };
-  },
-
-  errorMessages: {
-    wordsError: "Your password is incorrect",
-    urlError: "Please provide a valid email"
-  },
-
-  styles: {
-    paperStyle: {
-      width: 300,
-      margin: 20,
-      padding: 20
+        muiTheme: React.PropTypes.object
     },
-    switchStyle: {
-      marginBottom:16
-    }
-  },
+    getChildContext() {
+         return {
+             muiTheme: ThemeManager.getMuiTheme(LightRawTheme)
+         };
+     },
 
-
-  enableButton: function () {
-    this.setState({
-      canSubmit: true
-    });
-  },
-
-  disableButton: function () {
-    this.setState({
-      canSubmit: false
-    });
-  },
-
-  submitForm: function (data) {
-    // items = Items.find({userId: Meteor.userId()}).fetch();
-    result = Meteor.protyp_users.find({email:data.email}).fetch();
-
-    console.log(result);
-    open("/home", "_self");
-  },
-
-  notifyFormError: function (data) {
-    console.error('Form error:', data);
-  },
-
-  login: function () {
-
-  },
-
-  toggleLeftNavbar: function (e) {
+toggleLeftNavbar: function (e) {
     this.refs.leftNav.toggle();
   },
   toggleRightNavbar: function (e) {
     this.refs.rightNav.toggle();
   },
 
-  render: function () {
-    let {paperStyle, switchStyle, submitStyle } = this.styles;
-    let { wordsError, urlError } = this.errorMessages;
 
+
+
+
+  render: function () {
     leftMenuItems = [
       { type: MenuItem.Types.SUBHEADER, text: 'This is left side bar' },
       { route: 'get-started', text: 'First' },
@@ -100,10 +51,11 @@ Header = React.createClass({
       { route: 'customization', text: 'Second' },
       { route: 'components', text: 'Third' }
     ];
+
     return (
-      <div className="top-appbar">
-        <AppBar
-          iconElementLeft={
+      <AppCanvas>
+        <AppBar iconElementLeft=
+          {
             <div className="header-left-area">
               <FloatingActionButton
                 title="Register"
@@ -114,9 +66,10 @@ Header = React.createClass({
               <h3>Protyp</h3>
             </div>
           }
-          iconElementRight={
-            <div>
 
+          iconElementRight=
+          {
+            <div>
               <Formsy.Form
                 onValid={this.enableButton}
                 onInvalid={this.disableButton}
@@ -158,7 +111,6 @@ Header = React.createClass({
                   secondary={true}
                   mini={true} />
               </Formsy.Form>
-
             </div>
           } />
         <LeftNav
@@ -166,14 +118,13 @@ Header = React.createClass({
           ref="leftNav"
           docked={true}
           menuItems={leftMenuItems} />
-
         <LeftNav
           className="side-nav"
           ref="rightNav"
           docked={true}
           openRight={true}
           menuItems={rightMenuItems} />
-      </div>
+      </AppCanvas>
     );
   }
 });

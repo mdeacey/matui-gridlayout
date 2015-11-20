@@ -6,20 +6,19 @@
 }
 .header-inputbox hr {
   bottom: 22px !important;
+    height: 20px;
   border-color:#0094A7!important;
   width: 180px !important;
 }
 .header-inputbox div {
-  bottom: 24px !important;
+  bottom: 26px !important;
+    height: 20px;
   width: 180px !important;
 }
 .header-inputbox label {
   margin-top: -12px !important;
+    height: 20px;
   width: 180px !important;
-}
-
-.top-appbar {
-  margin-top: -18px;
 }
 
 .header-inputbox {
