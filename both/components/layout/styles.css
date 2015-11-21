@@ -1,3 +1,4 @@
+body { margin : 0 0 0 0; }
 
 .header-inputbox input {
   margin-top:1px !important;
@@ -19,6 +20,10 @@
   margin-top: -12px !important;
     height: 20px;
   width: 180px !important;
+}
+
+.floatingLabelText {
+  margin-top: -10px;
 }
 
 .header-inputbox {

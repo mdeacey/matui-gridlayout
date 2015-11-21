@@ -18,14 +18,31 @@ var {
 
 
 Header = React.createClass({
-  childContextTypes: {
-        muiTheme: React.PropTypes.object
+
+componentWillMount () {
+        let newMuiTheme = this.state.muiTheme;
+        newMuiTheme.appBar.color = Styles.Colors.blueGrey800;
+        newMuiTheme.appBar.height = 44;
+        this.setState({
+            muiTheme: newMuiTheme,
+        });
     },
-    getChildContext() {
-         return {
-             muiTheme: ThemeManager.getMuiTheme(LightRawTheme)
-         };
-     },
+    getChildContext () {
+        return {
+            muiTheme: this.state.muiTheme,
+        };
+    },
+    contextTypes: {
+        muiTheme: React.PropTypes.object,
+    },
+    childContextTypes : {
+        muiTheme: React.PropTypes.object,
+    },
+    getInitialState () {
+        return {
+            muiTheme: this.context.muiTheme,
+        };
+    },
 
 toggleLeftNavbar: function (e) {
     this.refs.leftNav.toggle();
@@ -34,11 +51,7 @@ toggleLeftNavbar: function (e) {
     this.refs.rightNav.toggle();
   },
 
-
-
-
-
-  render: function () {
+render: function () {
     leftMenuItems = [
       { type: MenuItem.Types.SUBHEADER, text: 'This is left side bar' },
       { route: 'get-started', text: 'First' },
